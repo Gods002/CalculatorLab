@@ -61,6 +61,10 @@ namespace CPE200Lab1
                     }
                     break;
                 case "%":
+                    if (Convert.ToDouble(secondOperand) > 0 && Convert.ToDouble(secondOperand) < 100)
+                        double result;
+                    = Convert.ToDouble(firstOperand) + (Convert.ToDouble(secondOperand) / 100);
+                    
                     //your code here
                     break;
             }
