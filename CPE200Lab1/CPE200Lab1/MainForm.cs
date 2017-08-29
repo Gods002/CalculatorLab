@@ -90,7 +90,7 @@ namespace CPE200Lab1
             }
             if(lblDisplay.Text.Length is 8)
             {
-                lblDisplay.Text = "Error223345";
+                lblDisplay.Text = "Errorx";
                 return;
             }
             isAllowBack = true;
