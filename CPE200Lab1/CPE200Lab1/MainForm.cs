@@ -62,9 +62,25 @@ namespace CPE200Lab1
                     break;
                 case "%":
                     if (Convert.ToDouble(secondOperand) > 0 && Convert.ToDouble(secondOperand) < 100)
+                    {
                         double result;
-                    = Convert.ToDouble(firstOperand) + (Convert.ToDouble(secondOperand) / 100);
-                    
+                        string[] parts;
+                        int remainLength;
+
+                        result = (Convert.ToDouble(firstOperand) + ((Convert.ToDouble(secondOperand) / 100)* Convert.ToDouble(firstOperand)));
+                        // split between integer part and fractional part
+                        parts = result.ToString().Split('.');
+                        // if integer part length is already break max output, return error
+                        if (parts[0].Length > maxOutputSize)
+                        {
+                            return "E";
+                        }
+                        // calculate remaining space for fractional part.
+                        remainLength = maxOutputSize - parts[0].Length - 1;
+                        // trim the fractional part gracefully. =
+                        return result.ToString("N" + remainLength);
+                    }
+
                     //your code here
                     break;
             }
@@ -128,6 +144,8 @@ namespace CPE200Lab1
                     isAfterOperater = true;
                     break;
                 case "%":
+                    firstOperand = lblDisplay.Text;
+                    isAfterOperater = true;
                     // your code here
                     break;
             }
