@@ -49,6 +49,9 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblDisplay = new System.Windows.Forms.Label();
+            this.sqrt = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn7
@@ -284,11 +287,29 @@
             this.lblDisplay.Text = "0";
             this.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // sqrt
+            // 
+            this.sqrt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sqrt.Location = new System.Drawing.Point(294, 204);
+            this.sqrt.Name = "sqrt";
+            this.sqrt.Size = new System.Drawing.Size(88, 43);
+            this.sqrt.TabIndex = 21;
+            this.sqrt.Text = "Sqrt()";
+            this.sqrt.UseVisualStyleBackColor = true;
+            this.sqrt.Click += new System.EventHandler(this.sqrt_Click);
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 499);
+            this.Controls.Add(this.sqrt);
             this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
@@ -312,6 +333,7 @@
             this.Controls.Add(this.btn7);
             this.Name = "MainForm";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +362,8 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblDisplay;
+        private System.Windows.Forms.Button sqrt;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 
