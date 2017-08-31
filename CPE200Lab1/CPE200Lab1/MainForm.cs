@@ -185,7 +185,7 @@ namespace CPE200Lab1
                 }
             }
             
-            isAfterEqual = true;
+            isAfterEqual = false;
             operacheck = true;
         }
 
@@ -368,7 +368,7 @@ namespace CPE200Lab1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            lblDisplay.Text = memberlist[mslist-1];
+            if(mslist != 0) lblDisplay.Text = memberlist[mslist-1];
            // lblDisplay.Text = "000000000";
         }
 
