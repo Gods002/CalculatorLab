@@ -18,7 +18,11 @@ namespace CPE200Lab1
         private bool isAfterEqual;
         private string firstOperand;
         private string operate;
-
+        private string currenttext;
+        private bool operacheck;
+        private bool clickdouble;
+        private bool modcheck;
+        
         private void resetAll()
         {
             lblDisplay.Text = "0";
@@ -26,6 +30,8 @@ namespace CPE200Lab1
             hasDot = false;
             isAfterOperater = false;
             isAfterEqual = false;
+            modcheck = false;
+            operacheck = true;
         }
 
         private string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
@@ -61,27 +67,21 @@ namespace CPE200Lab1
                     }
                     break;
                 case "%":
-                    if (Convert.ToDouble(secondOperand) > 0 && Convert.ToDouble(secondOperand) < 100)
+                    if (Convert.ToDouble(secondOperand) > 0 && Convert.ToDouble(secondOperand) <= 100)
                     {
                         double result;
                         string[] parts;
                         int remainLength;
 
-                        result = (Convert.ToDouble(firstOperand) + ((Convert.ToDouble(secondOperand) / 100)* Convert.ToDouble(firstOperand)));
-                        // split between integer part and fractional part
-                        parts = result.ToString().Split('.');
-                        // if integer part length is already break max output, return error
+                        result = (Convert.ToDouble(firstOperand) + ((Convert.ToDouble(secondOperand) / 100)* Convert.ToDouble(firstOperand)));                     
+                        parts = result.ToString().Split('.');              
                         if (parts[0].Length > maxOutputSize)
                         {
                             return "E";
                         }
-                        // calculate remaining space for fractional part.
                         remainLength = maxOutputSize - parts[0].Length - 1;
-                        // trim the fractional part gracefully. =
                         return result.ToString("N" + remainLength);
-                    }
-
-                    //your code here
+                    }      
                     break;
             }
             return "E";
@@ -96,7 +96,7 @@ namespace CPE200Lab1
 
         private void btnNumber_Click(object sender, EventArgs e)
         {
-            if (lblDisplay.Text is "Error")
+            if (lblDisplay.Text is "Errors")
             {
                 return;
             }
@@ -121,6 +121,7 @@ namespace CPE200Lab1
             }
             lblDisplay.Text += digit;
             isAfterOperater = false;
+            //clickdouble = false;
         }
 
         private void btnOperator_Click(object sender, EventArgs e)
@@ -145,10 +146,11 @@ namespace CPE200Lab1
                     break;
                 case "%":
                     firstOperand = lblDisplay.Text;
-                    isAfterOperater = true;
+                    isAfterOperater = true;//i do it claer
+                    operacheck = true;
+                    modcheck = true;
                     // your code here
                     break;
-                case "sqrt":
 
             }
             isAllowBack = false;
@@ -160,17 +162,42 @@ namespace CPE200Lab1
             {
                 return;
             }
-            string secondOperand = lblDisplay.Text;
-            string result = calculate(operate, firstOperand, secondOperand);
-            if (result is "E" || result.Length > 8)
+            if (operacheck)
             {
-                lblDisplay.Text = "Error";
+                string secondOperand = lblDisplay.Text;
+                string result = calculate(operate, firstOperand, secondOperand);
+                if (result is "E" || result.Length > 8)
+                {
+                    if (modcheck)
+                    {
+                        lblDisplay.Text = result.Substring(0, 8);
+                        modcheck = false;
+                    }
+                    else
+                    {
+                        lblDisplay.Text = "Error";                
+                    }
+                }
+                else
+                {
+                lblDisplay.Text = result;
+                }
             }
             else
             {
-                lblDisplay.Text = result;
+                if ( currenttext.Length > 8)
+                {
+                    currenttext = currenttext.Substring(0, 8);
+                    lblDisplay.Text = currenttext;
+                }
+                else
+                {
+                    lblDisplay.Text = currenttext;
+                }
             }
+            
             isAfterEqual = true;
+            operacheck = true;
         }
 
         private void btnDot_Click(object sender, EventArgs e)
@@ -200,10 +227,10 @@ namespace CPE200Lab1
             {
                 return;
             }
-            if (isAfterEqual)
+      /*      if (isAfterEqual)
             {
                 resetAll();
-            }
+            }*/
             // already contain negative sign
             if (lblDisplay.Text.Length is 8)
             {
@@ -260,7 +287,8 @@ namespace CPE200Lab1
 
         private void sqrt_Click(object sender, EventArgs e)
         {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    if (lblDisplay.Text is "Error")
+            operacheck = false;
+            if (lblDisplay.Text is "Error") 
             {
                 return;
             }
@@ -284,10 +312,52 @@ namespace CPE200Lab1
                 lblDisplay.Text = "Sqrt(" + current + ")";
                 numsqrt  = Math.Sqrt(Convert.ToDouble(current));
                 isAfterOperater = true;
-                lblDisplay.Text = numsqrt.ToString();
-               
+                currenttext = numsqrt.ToString();
+                if (currenttext.Length > 8)
+                {
+                    currenttext = currenttext.Substring(0, 8);
+                    lblDisplay.Text = currenttext;
+                }
+                else
+                {
+                    lblDisplay.Text = currenttext;
+                }
+            }
 
+        }
 
+        private void overone_Click(object sender, EventArgs e)
+        {
+            operacheck = false;
+            if (lblDisplay.Text is "Error")
+            {
+                return;
+            }
+            if (isAfterEqual)
+            {
+                return;
+            }
+            if (!isAllowBack)
+            {
+                return;
+            }
+            if(lblDisplay.Text != "0") { 
+                string current = lblDisplay.Text;
+                double numsqrt;
+                lblDisplay.Text = "1 /" + current;
+                numsqrt = (1 / Convert.ToDouble(current));
+                isAfterOperater = true;
+                currenttext = numsqrt.ToString();
+                if (currenttext.Length > 8)
+                {
+                    currenttext = currenttext.Substring(0, 8);
+                    lblDisplay.Text = currenttext;
+                }
+                else
+                {
+                    lblDisplay.Text = currenttext;
+                }
+                
             }
 
         }
