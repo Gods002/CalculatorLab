@@ -20,8 +20,11 @@ namespace CPE200Lab1
         private string operate;
         private string currenttext;
         private bool operacheck;
-        private bool clickdouble;
         private bool modcheck;
+        private string [] memberlist = new string [100];
+        private int mslist = 0;
+        private string thiedOperand;
+    
         
         private void resetAll()
         {
@@ -66,23 +69,7 @@ namespace CPE200Lab1
                         return result.ToString("N" + remainLength);
                     }
                     break;
-                case "%":
-                    if (Convert.ToDouble(secondOperand) > 0 && Convert.ToDouble(secondOperand) <= 100)
-                    {
-                        double result;
-                        string[] parts;
-                        int remainLength;
-
-                        result = (Convert.ToDouble(firstOperand) + ((Convert.ToDouble(secondOperand) / 100)* Convert.ToDouble(firstOperand)));                     
-                        parts = result.ToString().Split('.');              
-                        if (parts[0].Length > maxOutputSize)
-                        {
-                            return "E";
-                        }
-                        remainLength = maxOutputSize - parts[0].Length - 1;
-                        return result.ToString("N" + remainLength);
-                    }      
-                    break;
+               
             }
             return "E";
         }
@@ -138,19 +125,16 @@ namespace CPE200Lab1
             switch (operate)
             {
                 case "+":
+                   
                 case "-":
+                   
                 case "X":
+                    
                 case "÷":
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
                     break;
-                case "%":
-                    firstOperand = lblDisplay.Text;
-                    isAfterOperater = true;//i do it claer
-                    operacheck = true;
-                    modcheck = true;
-                    // your code here
-                    break;
+                
 
             }
             isAllowBack = false;
@@ -164,19 +148,24 @@ namespace CPE200Lab1
             }
             if (operacheck)
             {
-                string secondOperand = lblDisplay.Text;
+                string secondOperand;
+                
+                if (modcheck)
+                {
+                    secondOperand = thiedOperand;
+                    modcheck = false;
+                }
+                else
+                {
+                    secondOperand = lblDisplay.Text;
+                }
                 string result = calculate(operate, firstOperand, secondOperand);
                 if (result is "E" || result.Length > 8)
                 {
-                    if (modcheck)
-                    {
-                        lblDisplay.Text = result.Substring(0, 8);
-                        modcheck = false;
-                    }
-                    else
-                    {
-                        lblDisplay.Text = "Error";                
-                    }
+                    
+                   
+                 lblDisplay.Text = result;                
+                    
                 }
                 else
                 {
@@ -360,6 +349,59 @@ namespace CPE200Lab1
                 
             }
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int listremove = 0;
+            while (listremove < 100)
+            {
+                memberlist[listremove] = "0";
+                listremove++;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            memberlist[mslist - 1] = (Convert.ToDouble(memberlist[mslist - 1]) + Convert.ToDouble(lblDisplay.Text)).ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = memberlist[mslist-1];
+           // lblDisplay.Text = "000000000";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            memberlist[mslist - 1] = (Convert.ToDouble(memberlist[mslist - 1])- Convert.ToDouble (lblDisplay.Text)).ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            memberlist[mslist] = lblDisplay.Text;
+            mslist++;
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            thiedOperand = lblDisplay.Text;
+            //i do it claer
+            if (Convert.ToDouble(thiedOperand) > 0 && Convert.ToDouble(thiedOperand) <= 100)
+            {
+
+                thiedOperand = ((Convert.ToDouble(thiedOperand) / 100) * Convert.ToDouble(firstOperand)).ToString();
+                //lblDisplay.Text = thiedOperand;
+            }
+            operacheck = true;
+            modcheck = true;
+            isAfterOperater = true;
         }
     }
 }

@@ -45,18 +45,18 @@
             this.btn0 = new System.Windows.Forms.Button();
             this.btnSign = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
-            this.btnPercent = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblDisplay = new System.Windows.Forms.Label();
             this.sqrt = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.overone = new System.Windows.Forms.Button();
+            this.mplus = new System.Windows.Forms.Button();
+            this.mrecall = new System.Windows.Forms.Button();
+            this.mclaer = new System.Windows.Forms.Button();
+            this.mnega = new System.Windows.Forms.Button();
+            this.ms = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -247,17 +247,6 @@
             this.btnDivide.UseVisualStyleBackColor = true;
             this.btnDivide.Click += new System.EventHandler(this.btnOperator_Click);
             // 
-            // btnPercent
-            // 
-            this.btnPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPercent.Location = new System.Drawing.Point(294, 282);
-            this.btnPercent.Name = "btnPercent";
-            this.btnPercent.Size = new System.Drawing.Size(88, 53);
-            this.btnPercent.TabIndex = 17;
-            this.btnPercent.Text = "%";
-            this.btnPercent.UseVisualStyleBackColor = true;
-            this.btnPercent.Click += new System.EventHandler(this.btnOperator_Click);
-            // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -321,74 +310,88 @@
             this.overone.UseVisualStyleBackColor = true;
             this.overone.Click += new System.EventHandler(this.overone_Click);
             // 
+            // mplus
+            // 
+            this.mplus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mplus.Location = new System.Drawing.Point(149, 152);
+            this.mplus.Name = "mplus";
+            this.mplus.Size = new System.Drawing.Size(53, 53);
+            this.mplus.TabIndex = 23;
+            this.mplus.Text = "M+";
+            this.mplus.UseVisualStyleBackColor = true;
+            this.mplus.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // mrecall
+            // 
+            this.mrecall.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mrecall.Location = new System.Drawing.Point(208, 152);
+            this.mrecall.Name = "mrecall";
+            this.mrecall.Size = new System.Drawing.Size(58, 53);
+            this.mrecall.TabIndex = 23;
+            this.mrecall.Text = "MR";
+            this.mrecall.UseVisualStyleBackColor = true;
+            this.mrecall.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // mclaer
+            // 
+            this.mclaer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mclaer.Location = new System.Drawing.Point(272, 152);
+            this.mclaer.Name = "mclaer";
+            this.mclaer.Size = new System.Drawing.Size(110, 53);
+            this.mclaer.TabIndex = 24;
+            this.mclaer.Text = "MC";
+            this.mclaer.UseVisualStyleBackColor = true;
+            this.mclaer.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // mnega
+            // 
+            this.mnega.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnega.Location = new System.Drawing.Point(84, 152);
+            this.mnega.Name = "mnega";
+            this.mnega.Size = new System.Drawing.Size(59, 53);
+            this.mnega.TabIndex = 25;
+            this.mnega.Text = "M-";
+            this.mnega.UseVisualStyleBackColor = true;
+            this.mnega.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ms
+            // 
+            this.ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ms.Location = new System.Drawing.Point(12, 152);
+            this.ms.Name = "ms";
+            this.ms.Size = new System.Drawing.Size(66, 53);
+            this.ms.TabIndex = 26;
+            this.ms.Text = "MS";
+            this.ms.UseVisualStyleBackColor = true;
+            this.ms.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 152);
+            this.button1.Location = new System.Drawing.Point(294, 285);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 53);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "MS";
+            this.button1.Size = new System.Drawing.Size(88, 53);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "%";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.sqrt_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(75, 152);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 53);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "M-";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.sqrt_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(200, 152);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 53);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "M+";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(136, 152);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(58, 53);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "MR";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(259, 152);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 53);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "MC";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 499);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.overone);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.ms);
+            this.Controls.Add(this.mnega);
+            this.Controls.Add(this.mclaer);
+            this.Controls.Add(this.mrecall);
+            this.Controls.Add(this.mplus);
+            this.Controls.Add(this.overone);
             this.Controls.Add(this.sqrt);
             this.Controls.Add(this.lblDisplay);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnPercent);
             this.Controls.Add(this.btnDivide);
             this.Controls.Add(this.btnEqual);
             this.Controls.Add(this.btnDot);
@@ -433,17 +436,17 @@
         private System.Windows.Forms.Button btn0;
         private System.Windows.Forms.Button btnSign;
         private System.Windows.Forms.Button btnDivide;
-        private System.Windows.Forms.Button btnPercent;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblDisplay;
         private System.Windows.Forms.Button sqrt;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button overone;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button mclaer;
+        private System.Windows.Forms.Button mrecall;
+        private System.Windows.Forms.Button mplus;
+        private System.Windows.Forms.Button ms;
+        private System.Windows.Forms.Button mnega;
         private System.Windows.Forms.Button button1;
     }
 }
