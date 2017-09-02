@@ -35,13 +35,15 @@ namespace CPE200Lab1
             lblDisplay.Text = "0";
             isAllowBack = true;
             hasDot = false;
-            isAfterOperater = false;
+            isAfterOperater = true;
             isAfterEqual = false;
             modcheck = false;
             operacheck = true;
+            plusss = true;
            
-            firstOperand = "0";
-            secondOperand = "0";
+            firstOperand = lblDisplay.Text;
+            num = 0;
+
         }
         public MainForm()
         {
@@ -102,6 +104,7 @@ namespace CPE200Lab1
                     
                 case "÷":
                     //string ummmmm = lblDisplay.Text;
+                    num = 0;
                     if (plusss)
                     {
                     firstOperand = lblDisplay.Text;
@@ -160,7 +163,7 @@ namespace CPE200Lab1
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            
+            num = 0;
             if (lblDisplay.Text is "Error")
             {
                 return;
