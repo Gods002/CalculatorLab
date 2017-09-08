@@ -15,6 +15,7 @@ namespace CPE200Lab1
         private bool isNumberPart = false;
         private bool isContainDot = false;
         private CalculatorEngine engine;
+        public int calnum = 0;
         public ExtendForm()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace CPE200Lab1
                 isContainDot = false;
             }
             lblDisplay.Text += ((Button)sender).Text;
+            calnum++;
         }
 
         private void btnBinaryOperator_Click(object sender, EventArgs e)
@@ -76,6 +78,10 @@ namespace CPE200Lab1
             {
                 lblDisplay.Text = "0";
             }
+            if (calnum > 0)
+            {
+                calnum--;
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -83,6 +89,7 @@ namespace CPE200Lab1
             lblDisplay.Text = "0";
             isContainDot = false;
             isNumberPart = false;
+            calnum = 0;
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
@@ -95,6 +102,7 @@ namespace CPE200Lab1
             {
                 lblDisplay.Text = result;
             }
+            calnum = 0;
         }
 
         private void btnSign_Click(object sender, EventArgs e)

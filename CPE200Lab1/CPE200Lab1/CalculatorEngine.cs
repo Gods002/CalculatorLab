@@ -8,6 +8,7 @@ namespace CPE200Lab1
 {
     class CalculatorEngine
     {
+        ExtendForm ex =new ExtendForm();
         private bool isNumber(string str)
         {
             double retNum;
@@ -28,6 +29,8 @@ namespace CPE200Lab1
         public string Process(string str)
         {
             string[] parts = str.Split(' ');
+            for(int i = 0; i < 3 ; i++)
+            {
             if(!(isNumber(parts[0]) && isOperator(parts[1]) && isNumber(parts[2])))
             {
                 return "E";
@@ -35,6 +38,8 @@ namespace CPE200Lab1
             {
                 return calculate(parts[1], parts[0], parts[2], 4);
             }
+            }
+            
 
         }
         public string unaryCalculate(string operate, string operand, int maxOutputSize = 8)
